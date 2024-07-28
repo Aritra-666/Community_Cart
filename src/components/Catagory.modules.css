@@ -1,0 +1,9 @@
+.catagory {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 75px;
+  justify-content: center;
+  top: 75px;
+  background-color: #667fff;
+}
