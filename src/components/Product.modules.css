@@ -1,0 +1,17 @@
+.product{
+
+   display: flex;
+   position: relative;
+   left: 5px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(127, 255, 255, 0.66);
+   margin: 5px;
+   width: 41vw;
+   height: 41vw;
+
+   max-width: 250px;
+   max-height: 250px;
+
+}
+
