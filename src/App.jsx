@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Catagory from "./components/Catagory";
 import Advertising from "./components/Advertising";
 import ProductList from "./components/ProductList";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
       <div className="responsive">
       <Advertising />
       <ProductList Src={"mobile.webp"} />
+      <Footer/>
       </div>
+    
     </div>
   );
 }

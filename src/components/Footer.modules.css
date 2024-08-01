@@ -1,0 +1,99 @@
+.footer{
+    width: 100vw;
+    height: fit-content;
+    background-color: #000;
+    color: #fff;
+    font-family: Roboto;
+}
+
+.copyright{
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: fit-content;
+  
+    margin-top: 50px;
+    text-align: center;
+}
+
+.brands{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.brandcontext{
+   margin-top: 20px;
+}
+
+.brand-logo{
+    height: 20vw;
+    max-height: 100px;
+    width: 35vw;
+    max-width: 175px;
+    margin: 20px;
+    
+}
+.payment-img{
+    height: 8vw;
+    max-height: 50px;
+    margin: 10px;
+    margin-top: 30px;
+
+}
+.paymentcontext{
+   
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+
+}
+
+hr{
+    width: 90vw;
+    margin-bottom: 20px;
+}
+
+h4{
+    width: fit-content;
+    height: fit-content; 
+    display: block;
+    margin: 5px;
+}
+
+.footer-section{
+    display: inline-block;
+    width: 200px;
+    height: fit-content;
+    color: #fff;
+    margin: 20px;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+ul{
+    display: block;
+    list-style: none;
+    padding: 0;
+}
+li{
+    width: fit-content;
+    margin: 5px;
+}
+
+.payment-methods{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.links{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
