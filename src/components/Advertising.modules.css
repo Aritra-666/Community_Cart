@@ -11,7 +11,7 @@
     max-height: 400px;
     background-color:#ffffff;
     white-space: nowrap;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
     
@@ -22,11 +22,12 @@
 
 
 .AdvertisingIMG{
-   display: flex;
+   display: inline-block;
     width: 100vw;
     max-width: 800px;
     height: 46.8vw ;
     max-height: 400px;
+    flex-wrap: nowrap;
 
 }
 .Advertising-Row{
@@ -40,22 +41,27 @@
 }
 
 
-.images{
+
+
+  .swipe-left , .swipe-right{
     display: flex;
-    width: fit-content;
-  padding-left: 100%;
-  animation: scroll-horizontal 30s linear infinite running;
-  white-space: nowrap; 
-  background-color: #ffffff;
-}
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 10vw;
+    height: 10vw;
+    max-width: 60px;
+    max-height: 60px;
+    background-color: #ffffff00;
+    border: 1px solid rgb(84, 84, 84);
+    color: rgb(88, 88, 88);
+    border-radius: 5px;
+  }
 
-
-@keyframes scroll-horizontal {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-
+  .swipe-left{
+    left: 0vw;
+  }
+  .swipe-right{
+    right: 1vw;
   }

@@ -12,7 +12,7 @@ function App() {
       <Catagory />
       <div className="responsive">
       <Advertising />
-      <ProductList />
+      <ProductList Src={"mobile.webp"} />
       </div>
     </div>
   );

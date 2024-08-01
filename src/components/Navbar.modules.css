@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25vw;
+  width: 23vw;
   height: 10vw;
   max-height: 30px;
   margin-left: 10vw;
@@ -60,7 +60,7 @@
   width: 15vw;
   max-width: 70px;
   max-height: 30px;
-  margin-left: 5px;
+  margin-left: 2px;
   background-color: #667fff;
   color: white;
   border: 2px solid #ffffff;

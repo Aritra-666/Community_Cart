@@ -1,17 +1,44 @@
 .product{
 
-   display: flex;
+   display: grid;
+   grid-column: 1;
+   grid-row: 3;
    position: relative;
    left: 5px;
    justify-content: center;
-   align-items: center;
-   background-color: rgba(127, 255, 255, 0.66);
+   /* align-items: baseline; */
+   background-color: rgb(255, 255, 255);
    margin: 5px;
-   width: 41vw;
-   height: 41vw;
-
+   width: 40vw;
+   height: 55vw;
+   border: 0px solid rgba(255, 255, 255, 0);
+   border-radius: 5px;
    max-width: 250px;
-   max-height: 250px;
-
+   max-height: 344px;
+   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.478));
+   
 }
 
+
+.productIMG{
+   display: flex;
+   width: 35vw;
+   max-width: 200px;
+   max-height: 200px;
+   margin-top: 10px;
+   z-index: -1;
+}
+
+.productname{
+   display: flex;
+   font-family: Roboto;
+   font-size: 0.7rem;
+}
+
+.productprice{
+   display: flex;
+   font-family: Roboto;
+   font-size: 1rem;
+   font-weight: 900;
+   letter-spacing: 0.04rem;
+}
