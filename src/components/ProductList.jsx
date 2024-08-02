@@ -7,7 +7,12 @@ export default function ProductList(props) {
  <div className="product-container">
   
       <Product props={props}/>
-     
+      <Product props={props}/>
+      <Product props={props}/>
+      <Product props={props}/>
+
+      
+
     
       </div>
     </div>

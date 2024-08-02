@@ -4,6 +4,7 @@ import Catagory from "./components/Catagory";
 import Advertising from "./components/Advertising";
 import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
+import Status from "./components/Status";
 import "./App.css";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <ProductList Src={"mobile.webp"} />
       <Footer/>
       </div>
-    
+      <Status/>
     </div>
   );
 }

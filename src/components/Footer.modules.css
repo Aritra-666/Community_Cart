@@ -3,16 +3,12 @@
     height: fit-content;
     background-color: #000;
     color: #fff;
-    font-family: Roboto;
+    font-family: Roboto,sans-serif;
 }
 
 .copyright{
-    position: absolute;
-    bottom: 0px;
     width: 100vw;
-    height: fit-content;
-  
-    margin-top: 50px;
+    height: 100px;
     text-align: center;
 }
 

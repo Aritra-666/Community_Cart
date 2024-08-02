@@ -15,7 +15,7 @@ export default function Footer() {
 
       <hr/>
   <div className="links">
-      <div class="footer-section">
+      <div className="footer-section">
     <h4>Company Information</h4>
     <ul>
       <li><a href="/about-us">About Us</a></li>
@@ -26,7 +26,7 @@ export default function Footer() {
     </ul>
   </div>
 
-  <div class="footer-section">
+  <div className="footer-section">
     <h4>Customer Service</h4>
     <ul>
       <li><a href="/help-center">Help Center</a></li>
@@ -37,7 +37,7 @@ export default function Footer() {
     </ul>
   </div>
 
-  <div class="footer-section">
+  <div className="footer-section">
     <h4>Legal</h4>
     <ul>
       <li><a href="/terms-of-service">Terms of Service</a></li>
@@ -48,9 +48,9 @@ export default function Footer() {
     </ul>
   </div>
 
-  <div class="footer-section">
+  <div className="footer-section">
     <h4>Follow Us</h4>
-    <ul class="social-media">
+    <ul className="social-media">
       <li><a href="https://www.facebook.com/yourcompany" target="_blank">Facebook</a></li>
       <li><a href="https://www.twitter.com/yourcompany" target="_blank">Twitter</a></li>
       <li><a href="https://www.instagram.com/yourcompany" target="_blank">Instagram</a></li>
@@ -65,12 +65,12 @@ export default function Footer() {
 
 
   <hr />
-  <div class="footer-section-payment ">
+  <div className="footer-section-payment ">
     <h4 className="paymentcontext">Payment Methods</h4>
-    <ul class="payment-methods">
-      <li><img class="payment-img"  src="/Payment/VISA.jpeg" alt="Visa"/></li>
-      <li><img class="payment-img"  src="/Payment/MASTERCARD.jpg" alt="MasterCard"/></li>
-      <li><img class="payment-img"  src="/Payment/PAYPAL.jpg" alt="PayPal"/></li>
+    <ul className="payment-methods">
+      <li><img className="payment-img"  src="/Payment/VISA.jpeg" alt="Visa"/></li>
+      <li><img className="payment-img"  src="/Payment/MASTERCARD.jpg" alt="MasterCard"/></li>
+      <li><img className="payment-img"  src="/Payment/PAYPAL.jpg" alt="PayPal"/></li>
     </ul>
   </div>
  <hr />

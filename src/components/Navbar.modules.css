@@ -54,7 +54,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Roboto;
+  font-family: Roboto, san-serif;
   position: relative;
   height: 10vw;
   width: 15vw;
