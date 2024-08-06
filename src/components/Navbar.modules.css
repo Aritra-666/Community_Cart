@@ -1,7 +1,11 @@
 .name {
   font-family: Edu AU VIC WA NT Hand;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 400;
   font-size: 1.5rem;
+  height: 50px;
   color: rgb(255, 255, 255);
   margin-left: 20px;
 }
@@ -15,13 +19,19 @@
   margin-left: 10vw;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: rgba(255, 255, 255, 0.827);
-  border: 2px solid green;
-  filter: drop-shadow(0px 0px 2px rgba(0, 128, 0, 0.749));
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 25px;
+  color: white;
+  cursor: pointer;
 }
 .search::placeholder {
   font-size: 0.7rem;
+  color: #ffffff8d;
+}
+.search:focus{
+  /* border-color: #3ae374; */
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.651);
 }
 .navbar {
   display: flex;
@@ -29,16 +39,81 @@
   top: 0;
   justify-content: left;
   align-items: center;
-  background-color: #5fd12e;
+
+  flex-wrap: wrap;
+  background-color: #7d5fff;
   color: white;
   height: 75px;
   z-index: 10;
   width: 100vw;
 }
 
-@media screen and (max-width: 425px) {
-  .name {
-    font-size: 1rem;
+.search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, san-serif;
+  position: relative;
+  height: 10vw;
+  width: 15vw;
+  max-width: 70px;
+  max-height: 30px;
+  margin-left: 2px;
+  background-color: #7d5fff;
+  color: white;
+  border: 2px solid #ffffff;
+  border-radius: 25px;
+  transition: 0.5s;
+  overflow-x: hidden;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background-color: #3ae374;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.cart-icon {
+  width: 40px;
+}
+.search-box {
+  display: flex;
+  padding-right: 150px;
+  align-items: center;
+}
+
+.account-logo {
+  height: 40px;
+  width: 40px;
+  mix-blend-mode: lighten;
+  cursor: pointer;
+}
+
+.attach-right {
+  position: absolute;
+  height: 75px;
+  display: flex;
+  right: 2vw;
+  top: 0;
+  align-items: center;
+}
+
+@media screen and (max-width: 426px) {
+  .cart-icon {
+    width: 30px;
+  }
+  .account-logo {
+    width: 30px;
+    height: 30px;
   }
 }
 @media screen and (max-width: 750px) {
@@ -50,24 +125,25 @@
   }
 }
 
-.search-btn{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Roboto, san-serif;
-  position: relative;
-  height: 10vw;
-  width: 15vw;
-  max-width: 70px;
-  max-height: 30px;
-  margin-left: 2px;
-  background-color: #667fff;
-  color: white;
-  border: 2px solid #ffffff;
-  border-radius: 25px;
-  transition: 0.5s;
-  overflow-x: hidden;
-}
-.search-btn:hover{
-  background-color: #3249b0;
+@media screen and (max-width: 626px) {
+  .attach-right {
+    height: 50px;
+  }
+  .name{
+    position: absolute;
+    top: 0;
+  }
+  .navbar {
+    height: 110px;
+  }
+
+  .search {
+    width: 60vw;
+  }
+
+  .search-box {
+    position: absolute;
+    left: 2%;
+    bottom: 15px;
+  }
 }

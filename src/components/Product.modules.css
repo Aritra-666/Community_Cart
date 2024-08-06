@@ -1,48 +1,129 @@
 .product{
 
-   display: grid;
-   grid-column: 1;
-   grid-row: 3;
+   display: flex;
+   flex-direction: column;
    position: relative;
    box-sizing: border-box;
-   left: 5px;
-   justify-content: center;
-   /* align-items: baseline; */
+   align-content: center;
    background-color: rgb(255, 255, 255);
    margin: 5px;
+   margin-bottom: 30px;
    width: 40vw;
-   height: 55vw;
+   height: 60vw;
    border: 0px solid rgba(255, 255, 255, 0);
-   border-radius: 5px;
+   border-radius: 15px;
    max-width: 250px;
-   max-height: 344px;
+   max-height: 375px;
+   
    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.478));
    transition: 0.5s;
+   overflow: hidden;
    
 }
 .product:hover{
    filter: drop-shadow(0px 0px 10px #000); 
+   transform: translateY(-10px);
 }
 
 .productIMG{
    display: flex;
    width: 35vw;
-   max-width: 200px;
-   max-height: 200px;
+   max-width: 230px;
+   /* max-height: 200px; */
    margin-top: 10px;
    z-index: -1;
 }
 
 .productname{
    display: flex;
+   margin-top: 2.5%;
    font-family: Roboto, san-serif;
    font-size: 0.7rem;
+   height: fit-content;
+}
+
+.product-details{
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+  align-items: center;
 }
 
 .productprice{
    display: flex;
+   margin-top: 5%;
    font-family: Roboto, san-serif, san-serif;
-   font-size: 1rem;
+   font-size: 1.2rem;
    font-weight: 900;
-   letter-spacing: 0.04rem;
+
+}
+.productprice, .productname{
+   margin-left: 20px;
+}
+
+.add-cart{
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 13.6%;
+   width: 100%;
+   font-family: Roboto, serif;
+   font-weight: 700;
+   background-color: #7d5fff;
+   bottom: 0;
+   color: white;
+   cursor: pointer;
+}
+.done{
+   width: 15%;
+   filter: brightness(200%);
+   animation: opacity 0.5s linear 1;
+}
+
+
+@keyframes opacity {
+   0%{
+      opacity: 0;
+   }
+   100%{
+      opacity: 1;
+   }
+}
+
+@media screen and (max-width:1444px) and (min-width:1160px) {
+ 
+   .product{
+     width: 21vw;
+     max-width: 21vw;
+   }
+ 
+
+}
+
+@media screen and (max-width:1156px) and (min-width:870px) {
+ 
+   .product{
+     width: 28.5vw;
+     max-width: 28.5vw;
+   }
+ 
+
+}
+
+@media screen and (max-width:867px) and (min-width:625px) {
+ 
+   .product{
+     width: 42vw;
+     max-width: 42vw;
+   }
+ 
+
+}
+
+@media screen and (max-width:426px) {
+   .productprice{
+      font-size: 1rem;
+   }
 }

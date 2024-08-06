@@ -7,7 +7,6 @@ export default function Advertising() {
 
   useEffect(() => {
     let nthChild = document.querySelector(`.advertising :nth-child(${View})`);
-    console.log(nthChild);
     nthChild.scrollIntoView({
       behavior: "smooth",
       block: "nearest",

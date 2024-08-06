@@ -12,3 +12,12 @@
   position: absolute;
   top: 150px;
 }
+
+@media screen and (max-width: 626px) {
+
+  .responsive{
+    top: 185px;
+  }
+
+
+}

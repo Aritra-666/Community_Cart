@@ -12,10 +12,10 @@
 .product-container{
     display: flex;
     height: fit-content;
-    min-width: 80vw;
-    width: fit-content;
-    max-width:90vw ;
-    justify-content: space-between;
+    max-width: 90vw;
+    justify-content: center;
     flex-wrap:wrap;
-    flex: 1;
+    flex-direction: row;
+    flex-grow: 1;
+    
 }

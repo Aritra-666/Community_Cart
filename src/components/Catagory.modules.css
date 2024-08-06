@@ -5,5 +5,14 @@
   height: 75px;
   justify-content: center;
   top: 75px;
-  background-color: #667fff;
+  background-color: #3ae374;
+}
+
+@media screen and (max-width: 626px) {
+
+.catagory{
+  top: 110px;
+}
+
+
 }
