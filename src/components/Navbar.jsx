@@ -1,25 +1,25 @@
 import React from 'react'
-import './Navbar.modules.css'
-import { Link,BrowserRouter } from 'react-router-dom'
+import NavbarStyle from './Navbar.module.css'
+import { Link} from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <div className='navbar'>
-      <BrowserRouter>
-      <div className='name' >Community Cart</div >
-      <div className="search-box">
-      <input className='search' type="" placeholder='Seach for product, Brands, and more'/>
-      <button className="search-btn">Search</button> 
+    <div className={NavbarStyle.navbar}>
+
+      <div className={NavbarStyle.name} > <img src="logo.png" alt="" />Community Cart</div >
+      <div className={NavbarStyle.searchbox}>
+      <input className={NavbarStyle.search} type="" placeholder='Seach for product, Brands, and more'/>
+      <button className={NavbarStyle.searchbtn}>Search</button> 
       </div>
-      <div className="attach-right">
-      <div className="cart">
-       <img className="cart-icon" src="cart-removebg-preview.png" alt="" />
+      <div className={NavbarStyle.attachright}>
+      <div className={NavbarStyle.cart}>
+       <img className={NavbarStyle.carticon} src="cart-removebg-preview.png" alt="" />
     </div>
-    <div className="account-box">
-        <Link to="/Login"><img src="accountLogo.jpg" alt="" className="account-logo" /></Link>
+    <div className={NavbarStyle.accountbox}>
+        <Link to="/Login"><img src="accountLogo.jpg" alt="" className={NavbarStyle.accountlogo} /></Link>
     </div>
     </div>
-    </BrowserRouter>
+    
     </div>
   )
 }

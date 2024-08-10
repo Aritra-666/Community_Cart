@@ -1,12 +1,12 @@
 import React from 'react'
-import './Catagoryicon.modules.css'
+import CatagoryiconStyle from'./Catagoryicon.module.css'
 export default function Catagoryicon(props) {
   return (
-    <div className='catagoryicon'>
+    <div className={CatagoryiconStyle.catagoryicon}>
       
-      <img className='catagoryiconIMG' src={props.IMGsrc} alt='' />
+      <img className={CatagoryiconStyle.catagoryiconIMG} src={props.IMGsrc} alt='' />
 
-      <div className="catagoryiconName">{props.name}</div>
+      <div className={CatagoryiconStyle.catagoryiconName}>{props.name}</div>
 
     </div>
   )

@@ -26,7 +26,7 @@
   max-height: 400px;
   flex-wrap: nowrap;
 }
-.Advertising-Row {
+.AdvertisingRow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,8 +36,8 @@
   background-color: #ffffff00;
 }
 
-.swipe-left,
-.swipe-right {
+.swipeleft,
+.swiperight {
   display: flex;
   position: absolute;
   justify-content: center;
@@ -54,9 +54,9 @@
   border-radius: 5px;
 }
 
-.swipe-left {
+.swipeleft {
   left: 0vw;
 }
-.swipe-right {
+.swiperight {
   right: 1vw;
 }

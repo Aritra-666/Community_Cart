@@ -9,7 +9,7 @@
     padding-bottom: 50px;
 }
 
-.product-container{
+.productcontainer{
     display: flex;
     height: fit-content;
     max-width: 90vw;

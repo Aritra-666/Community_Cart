@@ -1,12 +1,12 @@
 import React from 'react'
 import Catagoryicon from './Catagoryicon'
-import './Catagory.modules.css'
+import CatagoryStyle from './Catagory.module.css'
 
 
 export default function Catagory() {
   return (
-    <div className='catagory'>
-     <div className="list">
+    <div className={CatagoryStyle.catagory}>
+     <div className={CatagoryStyle.list}>
      <Catagoryicon name='Mobile' IMGsrc='mobile.webp'/>
       <Catagoryicon name='TV' IMGsrc='TV.jpg'/>
       <Catagoryicon name='Fridge' IMGsrc='Fridge.jpeg'/>

@@ -1,0 +1,113 @@
+
+.loginpage{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    background: linear-gradient(30deg, #7d5fff, #ffffff);
+}
+
+
+.logincontainer {
+    width: 80vw;
+    max-width: 600px;
+    background-color: #fff ;
+    border-radius: 100px;
+    padding: 20px;
+    box-shadow: -20px 20px 30px rgba(0, 0, 0, 0.527);
+    padding: 5vw;
+  }
+  .logincontainer h2 {
+    text-align: center;
+    background: linear-gradient(to top, #7d5fff, #5680ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+  }
+
+  div#submit {
+    height: 75px;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    background-color: #7d5fff;
+    color: white;
+    transition: 0.5s;
+    border: none;
+    cursor: pointer;
+  }
+  div#submit:hover {
+    background-color: #3ae374;
+    letter-spacing: 2px;
+  }
+  h3 {
+    font-size: 1.1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .wrapinput .input:focus {
+    outline: none;
+  }
+  .wrapinput {
+    width: 50%;
+    margin: 20px 3%;
+    position: relative;
+  }
+  .wrapinput .input {
+    border: 0;
+    padding: 7px 0;
+    border-bottom: 2px solid #3ae374;
+    width: 75vw;
+    max-width: 550px;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    background-color: #f5f6fd00;
+  }
+.focusborder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 75vw;
+    max-width: 550px;
+    height: 2px;
+    background-color: #7d5fff;
+    transition: 1s;
+  }
+  .wrapinput .input:focus ~ .focusborder {
+    width: 0;
+    transition: 0.5s;
+  }
+
+  .create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5d5d5d;
+    transition: 0.5s;
+    width: 100%;
+  }
+  .create:hover{
+    color: #3ae374;
+    letter-spacing: 2px;
+  }
+
+  @media screen and (max-width: 626px) {
+    .logincontainer{
+      border-radius: 50px;
+    }
+  }

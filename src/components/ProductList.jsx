@@ -1,10 +1,10 @@
 import React from "react";
 import Product from "./Product";
-import "./ProductList.modules.css";
+import ProductListStyle from "./ProductList.module.css";
 export default function ProductList(props) {
   return (
-    <div className="productList">
-      <div className="product-container">
+    <div className={ProductListStyle.productList}>
+      <div className={ProductListStyle.productcontainer}>
         <Product props={props} />
         <Product props={props} />
         <Product props={props} />

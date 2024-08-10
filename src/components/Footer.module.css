@@ -30,6 +30,8 @@
     
 }
 .payment-img{
+    /* display: inline-block; */
+    display: flex;
     height: 8vw;
     max-height: 50px;
     margin: 10px;
@@ -38,9 +40,8 @@
 }
 .paymentcontext{
    
-   position: absolute;
-   left: 50%;
-   transform: translateX(-50%);
+    font-size: 1.2rem;
+ 
 
 }
 
@@ -49,11 +50,10 @@ hr{
     margin-bottom: 20px;
 }
 
-h4{
-    width: fit-content;
-    height: fit-content; 
-    display: block;
-    margin: 5px;
+.headers{
+  font-size: 1.2rem;
+  height: fit-content;
+  width: fit-content;
 }
 
 .footer-section{
@@ -63,6 +63,15 @@ h4{
     color: #fff;
     margin: 20px;
 }
+
+.footer-section-payment{
+    display: flex;
+    width: 90vw;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
 a{
     color: #fff;
     text-decoration: none;
@@ -83,8 +92,12 @@ li{
 
 .payment-methods{
     display: flex;
-    flex-wrap: wrap;
+    width: fit-content;
+    height: fit-content;
+    /* flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
+    align-items: center; */
 }
 
 .links{
@@ -92,3 +105,4 @@ li{
     justify-content: space-around;
     flex-wrap: wrap;
 }
+

@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import React, { useState } from "react";
-import "./Advertising.modules.css";
+import AdvertisingStyle from "./Advertising.module.css";
 
 export default function Advertising() {
   const [View, setView] = useState(1);
 
   useEffect(() => {
-    let nthChild = document.querySelector(`.advertising :nth-child(${View})`);
+    let nthChild = document.querySelector(`.${AdvertisingStyle.AdvertisingIMG}:nth-child(${View})`);
     nthChild.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
@@ -31,20 +31,20 @@ export default function Advertising() {
   };
 
   return (
-    <div className="Advertising-Row">
+    <div className={AdvertisingStyle.AdvertisingRow}>
 
-      <div className="swipe-left" onClick={swipeLeft}>&lt;</div>
+      <div className={AdvertisingStyle.swipeleft} onClick={swipeLeft}>&lt;</div>
 
-      <div className="advertising">
+      <div className={AdvertisingStyle.advertising}>
 
-        <img className="AdvertisingIMG" src="Advertisments/ad1.png" alt="" />
-        <img className="AdvertisingIMG" src="Advertisments/ad2.jpg" alt="" />
-        <img className="AdvertisingIMG" src="Advertisments/ad3.png" alt="" />
-        <img className="AdvertisingIMG" src="Advertisments/ad4.jpg" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad1.png" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad2.jpg" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad3.png" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad4.jpg" alt="" />
       
       </div>
 
-      <div className="swipe-right" onClick={swipeRight}>&gt;</div>
+      <div className={AdvertisingStyle.swiperight} onClick={swipeRight}>&gt;</div>
       
     </div>
   );

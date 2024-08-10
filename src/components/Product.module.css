@@ -42,7 +42,7 @@
    height: fit-content;
 }
 
-.product-details{
+.productdetails{
    width: 100%;
    height: fit-content;
    display: flex;
@@ -62,7 +62,7 @@
    margin-left: 20px;
 }
 
-.add-cart{
+.addcart{
    position: absolute;
    display: flex;
    justify-content: center;
@@ -75,11 +75,20 @@
    bottom: 0;
    color: white;
    cursor: pointer;
+   transition: 0.5s;
+   border: 2px solid rgba(255, 255, 255, 0);
+   border-bottom-left-radius: 15px;
+   border-bottom-right-radius: 15px;
 }
 .done{
    width: 15%;
    filter: brightness(200%);
    animation: opacity 0.5s linear 1;
+}
+
+.addcart:hover{
+   letter-spacing: 1px;
+   background-color: #3ae374;;
 }
 
 
