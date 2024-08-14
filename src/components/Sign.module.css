@@ -41,7 +41,7 @@
   
 }
 
-div#verify {
+.verify {
   height: 75px;
   width: 100%;
   padding: 10px;
@@ -56,8 +56,12 @@ div#verify {
   transition: 0.5s;
   border: none;
   cursor: pointer;
+  text-align: center;
+  align-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
-div#verify:hover {
+.verify:hover {
   background-color: #7d5fff;
   letter-spacing: 2px;
 }
@@ -104,6 +108,7 @@ a:hover {
 }
 .wrapinput .input:focus ~ .focusborder {
   width: 0;
+  background-color: #fff;
   transition: 0.5s;
 }
 

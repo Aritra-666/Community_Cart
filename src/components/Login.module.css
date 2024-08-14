@@ -90,6 +90,7 @@
   }
   .wrapinput .input:focus ~ .focusborder {
     width: 0;
+    background-color: #fff;
     transition: 0.5s;
   }
 
