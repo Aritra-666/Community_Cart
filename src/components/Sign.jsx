@@ -4,7 +4,15 @@ import SignStyle from "./Sign.module.css";
 
 export default function Sign() {
   const sendForVerify = async (email, name, password) => {
-    console.log(email);
+    
+
+
+    document.querySelectorAll(`.${SignStyle.input}`).forEach((element) => {
+      element.disabled = true;
+    })
+
+
+    
 
     let req = await fetch("http://localhost:3000/verifyEmail", {
       method: "POST",
@@ -17,11 +25,19 @@ export default function Sign() {
     if (req.ok) {
       let res = await req.json();
 
-      if (res.ClientID !== null) {
+      console.log(res.ClientID)
+
+
+      if(res.ClientID == null || res.ClientID == undefined  ){
+        alert("Sorry, but this email ID is already taken or not available")
+        document.querySelector('#Email').value=''
+
         document.querySelectorAll(`.${SignStyle.input}`).forEach((element) => {
-          element.disabled = true;
-        })
-          document.querySelector(`.${SignStyle.verify}`).innerHTML="Verification link sent on your email"
+          element.disabled = false;
+      })
+      }else{
+        
+          document.querySelector(`.${SignStyle.verify}`).innerHTML=`Verification link sent on your email with ID ${res.ClientID}`
           const polling = setInterval(() => {
 
             fetch("http://localhost:3000/tokenUpdates", {
@@ -37,10 +53,11 @@ export default function Sign() {
                   if (data) {
                     clearInterval(polling);
                    document.querySelector(`.${SignStyle.verify}`).innerHTML="Verified"
-                   alert("Your Email is verified and your account is successfully created")
-                   window.location.href='/'
+                   alert("Your account has been successfully created. Please log in using your credentials.")
+                   window.location.href='/Login'
                   }else if(!data){
                     alert("not verified")
+                    window.location.href='/'
                   }
                 }
                 });
