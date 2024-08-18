@@ -21,9 +21,12 @@ body{
 }
 
 ::-webkit-scrollbar-thumb{
-  background: linear-gradient(#7d5fff,#3ae374);
+  background-color: #8f8f8f9c;
   border: 1px solid rgb(164, 164, 164);
   border-radius: 25px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(#7d5fff,#3ae374);
 }
 ::-webkit-scrollbar-track{
 

@@ -10,15 +10,21 @@
     width: 100vw;
     text-align: center;
 }
-
 .brands{
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     
 }
 .brandcontext{
-   margin-top: 20px;
+    font-size: 1.2rem;
+   font-weight: 700;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   height: fit-content;
+   width: fit-content;
 }
 
 .brand-logo{
@@ -30,7 +36,6 @@
     
 }
 .payment-img{
-    /* display: inline-block; */
     display: flex;
     height: 8vw;
     max-height: 50px;
@@ -39,9 +44,11 @@
 
 }
 .paymentcontext{
-   
-    font-size: 1.2rem;
- 
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem; 
 
 }
 
@@ -67,9 +74,8 @@ hr{
 .footer-section-payment{
     display: flex;
     width: 90vw;
-    height: fit-content;
-    justify-content: center;
-    align-items: center;
+    height: 100px;
+
 }
 
 a{
@@ -91,13 +97,12 @@ li{
 }
 
 .payment-methods{
-    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+   display: flex;
     width: fit-content;
     height: fit-content;
-    /* flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center; */
 }
 
 .links{

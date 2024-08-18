@@ -61,14 +61,14 @@ export default function Footer() {
 
       <hr />
       <div className={`${FooterStyle["footer-section"]} ${FooterStyle["footer-section-payment"]}`}>
-        <div className={FooterStyle.centerpayment}>
+  
         <h5 className={FooterStyle.paymentcontext}>Payment Methods</h5>
         <ul className={FooterStyle["payment-methods"]}>
           <li><img className={FooterStyle["payment-img"]} src="/Payment/VISA.jpeg" alt="Visa"/></li>
           <li><img className={FooterStyle["payment-img"]} src="/Payment/MASTERCARD.jpg" alt="MasterCard"/></li>
           <li><img className={FooterStyle["payment-img"]} src="/Payment/PAYPAL.jpg" alt="PayPal"/></li>
         </ul>
-        </div>
+      
       </div>
       <hr />
 

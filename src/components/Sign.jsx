@@ -5,7 +5,7 @@ import SignStyle from "./Sign.module.css";
 export default function Sign() {
   const sendForVerify = async (email, name, password) => {
     
-
+  
 
     document.querySelectorAll(`.${SignStyle.input}`).forEach((element) => {
       element.disabled = true;

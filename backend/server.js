@@ -119,6 +119,7 @@ app.post("/tokenUpdates", (req, res) => {
     if (data !== null) {
       if (data.status) {
         const USER = new user({
+          ID : `${req.body.Name}${Date.now()}${req.body.ClientID}`,
           Email: req.body.Email,
           Name: req.body.Name,
           Password: req.body.Password,
