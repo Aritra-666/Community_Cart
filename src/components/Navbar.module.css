@@ -93,6 +93,13 @@
 .carticon {
   width: 40px;
 }
+
+.login{
+  font-family: Roboto;
+  font-weight: 700;
+}
+
+
 .searchbox {
   display: flex;
   padding-right: 150px;
@@ -105,6 +112,13 @@
   mix-blend-mode: lighten;
   cursor: pointer;
 }
+
+.accountbox{
+  height: fit-content;
+  width: fit-content;
+  margin-right: 10px;
+}
+
 
 .attachright {
   position: absolute;
@@ -123,6 +137,9 @@
  }
 }
 @media screen and (max-width: 426px) {
+  .cart{
+    margin-right: 10px;
+  }
   .carticon {
     width: 30px;
   }

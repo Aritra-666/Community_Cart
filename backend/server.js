@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 
 import { token } from "./models/token.js";
 import { user } from "./models/user.js";
+import { session } from "./models/session.js";
 
 const app = express();
 const port = 3000;
@@ -31,28 +32,16 @@ app.listen(port, () => {
   console.log(`server for Community_Cart is listening on port ${port}`);
 });
 
-
-
-
-
-
-
-
 app.post("/verifyEmail", (req, res) => {
-
-
   console.log(req.body);
-
 
   const email = req.body.Email;
 
-  user.findOne({ Email: email  }).then((data) => {
-
-
-    if(data == null){
+  user.findOne({ Email: email }).then((data) => {
+    if (data == null) {
       const Token = otpGenerator.generate(10, { specialChars: false });
       console.log("Generated token:", Token);
-    
+
       const clientID = otpGenerator.generate(10, { specialChars: false });
       console.log("Generated Client ID:", clientID);
       let mail = `Dear ${req.body.Name},
@@ -67,10 +56,7 @@ app.post("/verifyEmail", (req, res) => {
     
     Best regards,
     The Community Cart Team`;
-    
-     
-    
-    
+
       var transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -78,14 +64,14 @@ app.post("/verifyEmail", (req, res) => {
           pass: "csnc qzqp zfpq dogh",
         },
       });
-    
+
       var mailOptions = {
         from: "codeboldy",
         to: email,
         subject: "Email Verification",
         text: mail,
       };
-    
+
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log(error);
@@ -101,17 +87,11 @@ app.post("/verifyEmail", (req, res) => {
           res.json({ ClientID: clientID });
         }
       });
-    
-    } else{
-      res.json({ ClientID: null })
+    } else {
+      res.json({ ClientID: null });
     }
-     
-
-  })
-
- });
-
-
+  });
+});
 
 app.post("/tokenUpdates", (req, res) => {
   token.findOne({ clientID: req.body.ClientID }).then((data) => {
@@ -119,7 +99,7 @@ app.post("/tokenUpdates", (req, res) => {
     if (data !== null) {
       if (data.status) {
         const USER = new user({
-          ID : `${req.body.Name}${Date.now()}${req.body.ClientID}`,
+          ID: `${req.body.Name}${Date.now()}${req.body.ClientID}`,
           Email: req.body.Email,
           Name: req.body.Name,
           Password: req.body.Password,
@@ -132,3 +112,29 @@ app.post("/tokenUpdates", (req, res) => {
     }
   });
 });
+
+app.post("/Login", async (req, res) => {
+  console.log(req.body);
+
+  let LoginStatus = await user.findOne({
+    Email: req.body.Email,
+    Password: req.body.Password,
+  });
+
+  if (LoginStatus !== null) {
+    let cookieID = otpGenerator.generate(20);
+
+    const Session = new session({
+      ID: cookieID,
+      Account: LoginStatus.ID,
+      Expire: Date.now() + (3600000 * 24 * 365)
+    });
+    Session.save();
+
+    res.json({ cookieID: cookieID });
+  } else {
+    res.send(false);
+  }
+});
+
+

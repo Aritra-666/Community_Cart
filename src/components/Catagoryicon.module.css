@@ -1,7 +1,8 @@
 .catagoryiconIMG {
   height: 50px;
   width: 50px;
-  border: 2px solid rgba(255, 255, 255, 0);
+  background-color: #ffffff;
+  border: 0px solid rgba(255, 255, 255, 0);
   border-radius: 50%;
   margin-top: 2px;
 }

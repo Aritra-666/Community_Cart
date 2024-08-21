@@ -7,7 +7,7 @@ export default function Catagory() {
   return (
     <div className={CatagoryStyle.catagory}>
      <div className={CatagoryStyle.list}>
-     <Catagoryicon name='Mobile' IMGsrc='mobile.webp'/>
+     <Catagoryicon name='Mobile' IMGsrc='Mobile.png'/>
       <Catagoryicon name='TV' IMGsrc='TV.jpg'/>
       <Catagoryicon name='Fridge' IMGsrc='Fridge.jpeg'/>
       <Catagoryicon name='Laptop' IMGsrc='Laptop.jpg'/>

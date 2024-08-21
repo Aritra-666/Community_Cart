@@ -2,7 +2,12 @@ import React from 'react'
 import NavbarStyle from './Navbar.module.css'
 import { Link} from 'react-router-dom'
 
-export default function Navbar() {
+export default function Navbar(params) {
+
+
+
+
+
   return (
     <div className={NavbarStyle.navbar}>
 
@@ -16,7 +21,7 @@ export default function Navbar() {
        <img className={NavbarStyle.carticon} src="cart-removebg-preview.png" alt="" />
     </div>
     <div className={NavbarStyle.accountbox}>
-        <Link to="/Login"><img src="accountLogo.jpg" alt="" className={NavbarStyle.accountlogo} /></Link>
+      {params.Account?<img src="accountLogo.jpg" alt="" className={NavbarStyle.accountlogo} /> : <Link to="/Login"><p className={NavbarStyle.login}>Login</p></Link> }  
     </div>
     </div>
     
