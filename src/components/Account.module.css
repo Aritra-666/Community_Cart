@@ -1,0 +1,78 @@
+.AccountMain{
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:left;
+    align-items: center;
+    width: 100vw;
+    min-height: 40vh;
+    height: fit-content;
+    background-color: #7d5fff;
+}
+
+.Data{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100vw;
+    height: 60vh;
+    background-color: #fff;
+}
+
+.Data > div{
+    width: 45vw;
+    height: 30vh;
+    box-sizing: border-box;
+    padding: 1vw;
+    min-width: 133px;
+    min-height: 80px;
+    margin: 2vw;
+    border: 2px solid #7d5fff;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #7d5fff;
+}
+
+
+.ProfieImage{
+   
+    mix-blend-mode: lighten;
+    width: 15vh;
+    height: 15vh;
+    margin-left: 5vw;
+}
+
+.personal{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start;
+    width: fit-content;
+    height: 100%;
+}
+
+.personal > div{
+    width: fit-content;
+    font-family: Roboto;
+    color: #fff;
+    /* font-style: italic; */
+    font-size: 3vmin;
+}
+
+.name{
+    font-size: 12vmin !important;
+}
+
+@media screen and (max-width: 319px) {
+    .Data > div{
+        width: 95vw;
+     }
+ 
+}

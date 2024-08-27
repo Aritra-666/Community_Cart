@@ -25,7 +25,6 @@ export default function Sign() {
     if (req.ok) {
       let res = await req.json();
 
-      console.log(res.ClientID)
 
 
       if(res.ClientID == null || res.ClientID == undefined  ){

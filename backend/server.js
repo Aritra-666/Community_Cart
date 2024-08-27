@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 import { token } from "./models/token.js";
 import { user } from "./models/user.js";
 import { session } from "./models/session.js";
+import { product } from "./models/products.js";
 
 const app = express();
 const port = 3000;
@@ -33,17 +34,17 @@ app.listen(port, () => {
 });
 
 app.post("/verifyEmail", (req, res) => {
-  console.log(req.body);
+
 
   const email = req.body.Email;
 
   user.findOne({ Email: email }).then((data) => {
     if (data == null) {
       const Token = otpGenerator.generate(10, { specialChars: false });
-      console.log("Generated token:", Token);
+      
 
       const clientID = otpGenerator.generate(10, { specialChars: false });
-      console.log("Generated Client ID:", clientID);
+    
       let mail = `Dear ${req.body.Name},
     
     Thank you for registering with Community Cart! Your one time sign in ID is ${clientID}. To complete your sign-up process and gain full access to our features, please verify your email address by clicking the link below. This step ensures that we have the correct contact information for you and helps keep your account secure.
@@ -95,7 +96,7 @@ app.post("/verifyEmail", (req, res) => {
 
 app.post("/tokenUpdates", (req, res) => {
   token.findOne({ clientID: req.body.ClientID }).then((data) => {
-    console.log(data);
+
     if (data !== null) {
       if (data.status) {
         const USER = new user({
@@ -114,7 +115,7 @@ app.post("/tokenUpdates", (req, res) => {
 });
 
 app.post("/Login", async (req, res) => {
-  console.log(req.body);
+  
 
   let LoginStatus = await user.findOne({
     Email: req.body.Email,
@@ -129,7 +130,7 @@ app.post("/Login", async (req, res) => {
       Account: LoginStatus.ID,
       Expire: Date.now() + (3600000 * 24 * 365)
     });
-    Session.save();
+     await Session.save();
 
     res.json({ cookieID: cookieID });
   } else {
@@ -138,3 +139,55 @@ app.post("/Login", async (req, res) => {
 });
 
 
+app.post("/CookieCheck", async (req, res) => {
+
+
+
+  let cookieStatus = await session.findOne({ ID: req.body.cookieID})
+
+  if (cookieStatus !== null){
+
+    if(cookieStatus.Expire > Date.now()){
+      res.send(true)
+    }else{
+      res.send(false)
+    }
+    
+  }else{
+    res.send(false)
+  }
+
+})
+
+
+app.post("/Account", async (req, res) => {
+
+  let cookieStatus = await session.findOne({ ID: req.body.cookieID})
+  if (cookieStatus !== null){
+
+   let AccountID = cookieStatus.Account;
+   let User = await user.findOne({ID: AccountID})
+   
+   res.json( 
+    {
+      uid: User.ID,
+      name: User.Name,
+      email: User.Email
+    }
+  )
+
+  }else{
+    res.send(false)
+  }
+
+})
+
+
+app.post("/getProducts", async (req, res) => {
+
+ let products = await product.find({})
+
+
+
+ res.send(products)
+})

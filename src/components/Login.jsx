@@ -5,10 +5,10 @@ import LoginStyle from "./Login.module.css";
 
 export default function Login() {
 
-  const [Remember,setRemember]=useState(false)
+  const [Remember,setRemember] = useState(false)
  
   const LoginSubmit = async (object) => {
-    console.log(object);
+    
     document.querySelectorAll(`.${LoginStyle.input}`).forEach((element) => {
       element.disabled = true;
     })
@@ -34,10 +34,9 @@ export default function Login() {
       
       if(object.Remember){
         setcookie(res.cookieID , 365)
-        sessionStorage.setItem('sessionID', res.cookieID);
         window.location.href='/'
       }else{
-        sessionStorage.setItem('sessionID', res.cookieID);
+         document.cookie = `cookieID=${res.cookieID};`
          window.location.href='/'
       }
 
@@ -53,6 +52,7 @@ export default function Login() {
   
 
   const setcookie= async (ID , ExpireDays) => {
+    
 
    const ExpireDate =  new Date( Date.now()+(3600000*24*ExpireDays)).toUTCString();
  
