@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 import otpGenerator from "otp-generator";
 import cors from "cors";
 import bodyParser from "body-parser";
+import dotenv from 'dotenv';
 
 import { token } from "./models/token.js";
 import { user } from "./models/user.js";
@@ -12,12 +13,13 @@ import { product } from "./models/products.js";
 
 const app = express();
 const port = 3000;
+dotenv.config()
 
 main().catch((err) => console.log(err));
 
 async function main() {
   await mongoose.connect(
-    "mongodb+srv://aritrapandit67:jBdF3kDd04LP7h5S@community-cart.cbq3w.mongodb.net/"
+    process.env.DBConnectionString
   );
 }
 
