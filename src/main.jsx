@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Sign from './components/Sign';
 import App from './components/App.jsx'
 import Account from './components/Account.jsx';
+import SellerSignin from './components/SellerSignin.jsx';
 
 const router = createBrowserRouter([
 
@@ -30,7 +31,10 @@ const router = createBrowserRouter([
     path:'/Account',
     element: <Account/>
   },
-
+  {
+    path:'/SellerSign',
+    element: <SellerSignin/>
+  },
 
 ]);
 

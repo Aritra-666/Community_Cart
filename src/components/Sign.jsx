@@ -76,7 +76,7 @@ export default function Sign() {
   return (
     <div className={SignStyle.Signpage}>
       <div className={SignStyle.Signcontainer}>
-        <h2>Sign in</h2>
+        <h2>Sign up</h2>
         <form action="#" method="post">
           <div className={SignStyle.wrapinput}>
             <input

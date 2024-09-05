@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import FooterStyle from "./Footer.module.css";
 
 export default function Footer() {
@@ -72,9 +73,12 @@ export default function Footer() {
       </div>
       <hr />
 
+      <div className={FooterStyle.BecomeSeller}>  <Link to="/SellerSign">BecomeSeller</Link></div>
+      <hr />
       <div className={FooterStyle.copyright}>
         &copy; 2024 codeboldy. All rights reserved.
       </div>
+   
     </div>
   );
 }

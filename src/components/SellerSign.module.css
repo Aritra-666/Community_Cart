@@ -1,0 +1,82 @@
+.SignPage{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    background: linear-gradient(30deg, #3ae374, #ffffff);
+}
+
+.SignContainer{
+    height: fit-content;
+    min-height: fit-content;
+    width: 95vw;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: -20px 20px 30px rgba(0, 0, 0, 0.527);
+    padding-bottom: 30px;
+}
+
+.header{
+  display: flex;
+  margin-top: 20px;
+   width: 95vw;
+   max-width: 800px;
+   height: fit-content;
+   justify-content: center;
+   align-items: center;
+   font-size: 7vw;
+   color: #3ae374;
+}
+
+input{
+    width: 40vw;
+    min-width: 100px;
+    height: 5vw ;
+    max-height: 30px;
+    max-width: 300px;
+    border: 1px solid #3ae374;
+}
+.form > div{
+    margin: 2vh;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.alert{
+    display: none;
+    width: 95vw;
+    max-width: 800px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff000082;
+    
+}
+span{
+    
+    height: fit-content;
+    width: fit-content;
+    font-size: 12px;
+    color: red;
+    display: flex;
+    margin-top: 0;
+}
+
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.submit{
+    height: 40px;
+    border-radius: 25px;
+    background-color: #3ae374;
+    color: #fff;
+}

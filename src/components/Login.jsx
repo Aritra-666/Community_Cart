@@ -90,7 +90,7 @@ export default function Login() {
           <div className={LoginStyle.checkbox}>
             <img src="Tick.png" />
             <label  htmlFor="check">Remember me</label>
-            <input onChange={() => {Remember? setRemember(false):setRemember(true)}} type="checkbox" className={LoginStyle.input} id="check" />
+            <input onChange={() => {Remember? setRemember(false):setRemember(true)}} type="checkbox"  id="check"  />
           </div>
         </form>
         <div
