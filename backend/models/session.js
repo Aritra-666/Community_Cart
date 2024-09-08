@@ -5,7 +5,8 @@ const Session = new mongoose.Schema({
     
       ID: String,
       Account: String,
-      Expire: Number
+      Expire: Number,
+      Seller: Boolean
 
 });
 

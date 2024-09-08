@@ -6,47 +6,109 @@ import LoginStyle from "./Login.module.css";
 export default function Login() {
 
   const [Remember,setRemember] = useState(false)
- 
+  const [Seller,setSeller] = useState(false)
+
+
   const LoginSubmit = async (object) => {
+
+    console.log(object.Seller)
     
     document.querySelectorAll(`.${LoginStyle.input}`).forEach((element) => {
       element.disabled = true;
     })
 
-    let req =  await fetch("http://localhost:3000/Login", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(object),
-    });
-    
-   if(req.ok){
+    if(object.Seller){
 
-    let res = await req.json();
-
-    if(!res) {
-      alert("Account not exists")
-      document.querySelectorAll(`.${LoginStyle.input}`).forEach((element) => {
-        element.disabled = false;
-      })
-    }else{
+      let req =  await fetch("http://localhost:3000/sellerLogin", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(object),
+      });
       
-      if(object.Remember){
-        setcookie(res.cookieID , 365)
-        window.location.href='/'
-      }else{
-         document.cookie = `cookieID=${res.cookieID};`
-         window.location.href='/'
-      }
-
-    } 
-   } else {
-       
-      console.error(`ERROR:${req.status},${req.statusText}`);
-      alert(`ERROR:${req.status},${req.statusText}`);
+     if(req.ok){
   
-   }
+      let res = await req.json();
+  
+      if(!res) {
+        alert("Account not exists")
+        document.querySelectorAll(`.${LoginStyle.input}`).forEach((element) => {
+          element.disabled = false;
+        })
+      }else{
+        
+        if(object.Remember){
+          setcookie(res.cookieID , 365)
+          window.location.href='/'
+        }else{
+           document.cookie = `cookieID=${res.cookieID};`
+           window.location.href='/'
+        }
+  
+      } 
+     } else {
+         
+        console.error(`ERROR:${req.status},${req.statusText}`);
+        alert(`ERROR:${req.status},${req.statusText}`);
+    
+     }
+
+
+
+
+
+
+
+    }else{
+
+
+
+
+
+      let req =  await fetch("http://localhost:3000/Login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(object),
+      });
+      
+     if(req.ok){
+  
+      let res = await req.json();
+  
+      if(!res) {
+        alert("Account not exists")
+        document.querySelectorAll(`.${LoginStyle.input}`).forEach((element) => {
+          element.disabled = false;
+        })
+      }else{
+        
+        if(object.Remember){
+          setcookie(res.cookieID , 365)
+          window.location.href='/'
+        }else{
+           document.cookie = `cookieID=${res.cookieID};`
+           window.location.href='/'
+        }
+  
+      } 
+     } else {
+         
+        console.error(`ERROR:${req.status},${req.statusText}`);
+        alert(`ERROR:${req.status},${req.statusText}`);
+    
+     }
+
+
+
+
+
+
+
+
+    }
 
   }
   
@@ -64,6 +126,7 @@ export default function Login() {
 
   return (
     <div className={LoginStyle.loginpage}>
+      
       <div className={LoginStyle.logincontainer}>
         <h2>Login</h2>
         <form action="#" method="post">
@@ -88,10 +151,14 @@ export default function Login() {
           </div>
 
           <div className={LoginStyle.checkbox}>
-            <img src="Tick.png" />
             <label  htmlFor="check">Remember me</label>
             <input onChange={() => {Remember? setRemember(false):setRemember(true)}} type="checkbox"  id="check"  />
           </div>
+
+          <div className={LoginStyle.checkbox}>
+            <label  htmlFor="sellercheck">Are you a selller?</label>
+            <input onChange={() => {Seller? setSeller(false):setSeller(true)}} type="checkbox"  id="sellercheck"  />
+            </div>.
         </form>
         <div
           onClick={() => {
@@ -100,6 +167,7 @@ export default function Login() {
                  Email: document.querySelector("#Email").value,
                  Password: document.querySelector("#Password").value,
                  Remember: Remember,
+                 Seller: Seller
              }
             );
           }}

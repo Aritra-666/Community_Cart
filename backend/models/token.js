@@ -6,6 +6,7 @@ const Token = new mongoose.Schema({
         ID: String,
         clientID : String,
         status: Boolean,
+      
 
 });
 

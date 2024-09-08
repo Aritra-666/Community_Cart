@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
-import twilio from 'twilio';
 import otpGenerator from "otp-generator";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -12,10 +11,15 @@ import { user } from "./models/user.js";
 import { session } from "./models/session.js";
 import { product } from "./models/products.js";
 import { seller } from "./models/seller.js";
+import { image } from "./models/image.js";
 
 const app = express();
 const port = 3000;
 dotenv.config()
+
+app.use(bodyParser.json({ limit: '50mb' }));
+
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 
 
@@ -135,7 +139,8 @@ app.post("/Login", async (req, res) => {
     const Session = new session({
       ID: cookieID,
       Account: LoginStatus.ID,
-      Expire: Date.now() + (3600000 * 24 * 365)
+      Expire: Date.now() + (3600000 * 24 * 365),
+      Seller: false
     });
      await Session.save();
 
@@ -171,17 +176,36 @@ app.post("/Account", async (req, res) => {
 
   let cookieStatus = await session.findOne({ ID: req.body.cookieID})
   if (cookieStatus !== null){
-
-   let AccountID = cookieStatus.Account;
-   let User = await user.findOne({ID: AccountID})
    
-   res.json( 
-    {
-      uid: User.ID,
-      name: User.Name,
-      email: User.Email
-    }
-  )
+   let AccountID = cookieStatus.Account;
+
+   if(cookieStatus.Seller){
+    
+     let User = await seller.findOne({ID: AccountID})
+     
+     res.json( 
+      {
+        uid: User.ID,
+        name: User.Name,
+        email: User.Email,
+        seller:true
+      }
+    )
+
+   }else{
+
+    let User = await user.findOne({ID: AccountID})
+     
+    res.json( 
+     {
+       uid: User.ID,
+       name: User.Name,
+       email: User.Email,
+       seller:false
+     }
+   )
+   }
+
 
   }else{
     res.send(false)
@@ -290,3 +314,100 @@ app.post("/sellertokenUpdates", (req, res) => {
     }
   });
 });
+
+
+
+app.post("/sellerLogin", async (req, res) => {
+
+
+  let LoginStatus = await seller.findOne({
+    Email: req.body.Email,
+    Password: req.body.Password,
+  });
+
+  if (LoginStatus !== null) {
+    let cookieID = otpGenerator.generate(20);
+
+    const Session = new session({
+      ID: cookieID,
+      Account: LoginStatus.ID,
+      Expire: Date.now() + (3600000 * 24 * 365),
+      Seller: true
+    });
+     await Session.save();
+
+    res.json({ cookieID: cookieID });
+  } else {
+    res.send(false);
+  }
+
+
+})
+
+
+app.post("/getownproducts", async (req, res) => {
+
+  let cookieStatus = await session.findOne({ ID: req.body.cookieID})
+  if(cookieStatus !== null){
+    let AccountID = cookieStatus.Account
+    let products = await product.find({AccountID: AccountID})
+    res.json(products)
+  }else{
+    res.json(false)
+  }
+  
+
+
+
+})
+
+
+app.post("/AddProducts", async (req, res) => {
+
+// console.log(req.body)
+
+  
+let cookieStatus= await session.findOne({ID:req.body.cookieID})
+if(cookieStatus !== null){
+  let ProductID=`${cookieStatus.Account}-${Date.now()}-${req.body.name}`
+  let PRODUCT=new product(
+    {
+    ProductID:ProductID ,
+    AccountID:cookieStatus.Account,
+    name:req.body.name,
+    price:req.body.price,
+    unit: req.body.unit
+  }
+)
+PRODUCT.save()
+
+let IMAGE= new image(
+  {
+    ID:ProductID,
+    base64url:req.body.IMG
+  }
+)
+IMAGE.save()
+
+}
+
+console.log("done")
+})
+
+
+
+
+
+app.post("/ProductsImage", async (req, res) => {
+
+  console.log(req.body)
+
+  let Image = await image.findOne({ID : req.body.ID})
+
+  if(Image !== null){
+    console.log("res send..")
+    res.json({url :Image.base64url})
+  }
+
+
+})

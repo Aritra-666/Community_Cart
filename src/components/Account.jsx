@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import AccountStyle from "./Account.module.css";
 
@@ -7,6 +8,11 @@ export default function Account() {
   const [UID,setUID]=useState("####")
   const [Name,setName]=useState("####")
   const [Email,setEmail]=useState("####")
+  const[seller,setseller]=useState("###")
+
+  function gotoProductsPAge(){
+    window.location.href=`/MyProducts`
+  }
   
    async function GetAccount() {
 
@@ -27,6 +33,11 @@ export default function Account() {
         setUID(res.uid)
         setName(res.name)
         setEmail(res.email)
+        setseller(res.seller)  
+        
+       
+
+
       }else{
         alert("Sorry, you may have to login again")
         window.location.href="/Login"
@@ -71,8 +82,9 @@ export default function Account() {
 
       </div>
       <div className={AccountStyle.Data}>
-        <div className={AccountStyle.orders}>Orders</div>
-        <div className={AccountStyle.points}>Points:</div>
+        {seller && <div onClick={gotoProductsPAge} id="products" className={AccountStyle.products}>My Products</div> }
+        <div id="order" className={AccountStyle.orders}>My Orders</div>
+        <div id="address" className={AccountStyle.address}>Address</div>
       </div>
     </div>
   );

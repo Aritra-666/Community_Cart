@@ -27,7 +27,7 @@ function App() {
       <Catagory />
       <div className={AppStyle.responsive}>
         <Advertising />
-        <ProductList Src={"Mobile.png"} />
+        <ProductList/>
         <Footer />
       </div>
     

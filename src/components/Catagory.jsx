@@ -7,11 +7,11 @@ export default function Catagory() {
   return (
     <div className={CatagoryStyle.catagory}>
      <div className={CatagoryStyle.list}>
-     <Catagoryicon name='Mobile' IMGsrc='Mobile.png'/>
-      <Catagoryicon name='TV' IMGsrc='TV.jpg'/>
-      <Catagoryicon name='Fridge' IMGsrc='Fridge.jpeg'/>
-      <Catagoryicon name='Laptop' IMGsrc='Laptop.jpg'/>
-      <Catagoryicon name='AC' IMGsrc='AC.jpg'/>
+     <Catagoryicon name='Rice' IMGsrc='Rice.jpeg'/>
+      <Catagoryicon name='Dal' IMGsrc='Dal.jpg'/>
+      <Catagoryicon name='Potato' IMGsrc='Potato.jpeg'/>
+      <Catagoryicon name='Tomato' IMGsrc='Tomato.jpeg'/>
+      <Catagoryicon name='Apple' IMGsrc='Apple.jpg'/>
      </div>
     </div>
   )

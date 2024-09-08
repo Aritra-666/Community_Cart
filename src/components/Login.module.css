@@ -34,7 +34,7 @@ div#submit {
   border: 1px solid #ccc;
   border-radius: 50px;
   box-sizing: border-box;
-  margin-top: 50px;
+  margin-top: 30px;
   background-color: #7d5fff;
   color: white;
   transition: 0.5s;
@@ -69,6 +69,7 @@ a:hover {
 .wrapinput .input {
   border: 0;
   padding: 7px 0;
+  margin: 0;
   border-bottom: 2px solid #3ae374;
   width: 75vw;
   max-width: 550px;
@@ -76,14 +77,14 @@ a:hover {
   letter-spacing: 1px;
   background-color: #f5f6fd00;
 }
-label[for='check'] {
-  position: absolute;
+label[for='check'],label[for='sellercheck'] {
+ 
   font-family: Roboto;
   font-weight: 400;
   color: #5d5d5d;
   font-size: 0.9rem;
   transition: 0.5s;
-  margin-left:30px;
+  /* margin-bottom: 20px; */
 }
 .focusborder {
   position: absolute;
@@ -117,12 +118,15 @@ input[type="checkbox"]{
 input[type="checkbox"]:checked{
   background-color:  #3ae374;
   border: 2px solid #3ae374;
+  clip-path: polygon(0% 50%, 25% 75%, 100% 0%, 100% 20%, 25% 100%, 0% 75%);
 }
 
 label[for='check']:hover{
   color:  #3ae374;
 }
-
+label[for='sellercheck']:hover{
+  color:  #3ae374;
+}
 label[for='check']:hover ~ input[type="checkbox"]{
   appearance: none;
   -webkit-appearance: none;
@@ -137,6 +141,7 @@ label[for='check']:hover ~ input[type="checkbox"]{
   display: flex;
   align-items: center;
   margin-left: 1.6vw;
+  margin-top: 15px;
 }
 @media screen and (min-width: 734px) {
   .checkbox {
@@ -144,11 +149,6 @@ label[for='check']:hover ~ input[type="checkbox"]{
   }
 }
 
-img[src="Tick.png"]{
-  width: 15px;
-  position: absolute;
-  margin-left: 4px;
-}
 .create {
   display: flex;
   justify-content: center;

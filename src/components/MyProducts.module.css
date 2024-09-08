@@ -1,0 +1,27 @@
+.MyProductpage{
+    width: 100vw;
+    height: 100vh;
+    font-family: Roboto;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    width: 95vw;
+    height: 15vh;
+    background-color: #7d5fff;
+    color: #fff;
+    font-size: 7vmin;
+    padding-left: 5vw;
+}  
+
+.plus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vmin;
+    width: 7vmin;
+    margin-left: 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+}

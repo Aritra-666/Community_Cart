@@ -32,8 +32,10 @@
 
 .productIMG{
    display: flex;
-   width: 35vw;
-   max-width: 230px;
+   width: 25vw;
+   height: 30vw;
+   max-width: 210px;
+   max-height: 230px ;
    /* max-height: 200px; */
    margin-top: 10px;
    z-index: -1;

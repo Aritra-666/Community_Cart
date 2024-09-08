@@ -2,9 +2,11 @@ import mongoose from "mongoose";
 
 
 const Product = new mongoose.Schema({
-    
+     ProductID: String,
+     AccountID:String,
      name:String,
-     price:Number
+     price:Number,
+     unit: String
 
 });
 

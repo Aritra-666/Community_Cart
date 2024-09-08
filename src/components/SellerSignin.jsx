@@ -12,7 +12,6 @@ export default function SellerSignin() {
 
 
   const Submit = async (data) => {
-    console.log(data)
 
     let req = await fetch("http://localhost:3000/verifySellerEmail", {
       method: "POST",
@@ -30,9 +29,6 @@ export default function SellerSignin() {
       if(res.ClientID == null || res.ClientID == undefined  ){
         alert("Sorry, but this email ID is already taken or not available")
 
-      //   document.querySelectorAll(`.${SignStyle.input}`).forEach((element) => {
-      //     element.disabled = false;
-      // })
       }else{
         
           document.querySelector("#submit").innerHTML=`Verification email sent`
@@ -72,6 +68,7 @@ export default function SellerSignin() {
 
   return (
     <div className={SellerSignStyle.SignPage}>
+      
       <div className={SellerSignStyle.SignContainer}>
         <div className={SellerSignStyle.header}>Seller sign up</div>
         <div id="alert" className={SellerSignStyle.alert}>

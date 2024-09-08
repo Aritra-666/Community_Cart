@@ -36,7 +36,7 @@ export default function ProductList() {
         {Products ? 
         Products.map((product,index) => {
           return (
-            <Product key={index} Name={product.name} Price={product.price} />
+            <Product key={index} ID={product.ProductID} Name={product.name} Price={product.price} unit={product.unit}/>
           );
         }
         ) 

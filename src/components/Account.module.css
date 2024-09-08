@@ -18,18 +18,20 @@
 .Data{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100vw;
     height: 60vh;
     background-color: #fff;
 }
 
 .Data > div{
-    width: 45vw;
-    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45vmin;
+    height: 45vmin;
     box-sizing: border-box;
-    padding: 1vw;
-    min-width: 133px;
+    min-width: 144px;
     min-height: 80px;
     margin: 2vw;
     border: 2px solid #7d5fff;
@@ -37,6 +39,13 @@
     font-family: Roboto;
     font-weight: 700;
     color: #7d5fff;
+    transition: 0.5s;
+}
+
+
+.Data > div:hover{
+    border: 2px solid #3ae374;
+    color: #3ae374;
 }
 
 

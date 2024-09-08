@@ -38,9 +38,9 @@ export default function Advertising() {
       <div className={AdvertisingStyle.advertising}>
 
         <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad1.png" alt="" />
-        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad2.jpg" alt="" />
-        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad3.png" alt="" />
-        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad4.jpg" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad2.jpeg" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad3.jpeg" alt="" />
+        <img className={AdvertisingStyle.AdvertisingIMG} src="Advertisments/ad4.jpeg" alt="" />
       
       </div>
 

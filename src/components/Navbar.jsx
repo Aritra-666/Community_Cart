@@ -64,7 +64,7 @@ export default function Navbar() {
         <input
           className={NavbarStyle.search}
           type=""
-          placeholder="Seach for product, Brands, and more"
+          placeholder="Seach for fruits,vegetables and more"
         />
         <button className={NavbarStyle.searchbtn}>Search</button>
       </div>

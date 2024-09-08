@@ -7,6 +7,7 @@ import Sign from './components/Sign';
 import App from './components/App.jsx'
 import Account from './components/Account.jsx';
 import SellerSignin from './components/SellerSignin.jsx';
+import MyProducts from './components/MyProducts.jsx';
 
 const router = createBrowserRouter([
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path:'/SellerSign',
     element: <SellerSignin/>
+  },
+  {
+    path:'/MyProducts',
+    element: <MyProducts/>
   },
 
 ]);

@@ -6,12 +6,12 @@ import FooterStyle from "./Footer.module.css";
 export default function Footer() {
   return (
     <div className={FooterStyle.footer}>
-      <div className={FooterStyle.brandcontext}>We are authorised dealer of</div>
+      <div className={FooterStyle.brandcontext}>This Project is developed for</div>
       <div className={FooterStyle.brands}>
-        <img src="Brands/ADIDAS.jpeg" alt="" className={FooterStyle["brand-logo"]} />
-        <img src="Brands/APPLE.jpeg" alt="" className={FooterStyle["brand-logo"]} />
+        <img src="Brands/sihlogo.jpg" alt="" className={FooterStyle["brand-logo"]} />
+        {/* <img src="Brands/APPLE.jpeg" alt="" className={FooterStyle["brand-logo"]} />
         <img src="Brands/LEVI'S.png" alt="" className={FooterStyle["brand-logo"]} />
-        <img src="Brands/NIKE.png" alt="" className={FooterStyle["brand-logo"]} />
+        <img src="Brands/NIKE.png" alt="" className={FooterStyle["brand-logo"]} /> */}
       </div>
 
       <hr />
@@ -76,7 +76,7 @@ export default function Footer() {
       <div className={FooterStyle.BecomeSeller}>  <Link to="/SellerSign">BecomeSeller</Link></div>
       <hr />
       <div className={FooterStyle.copyright}>
-        &copy; 2024 codeboldy. All rights reserved.
+        &copy; 2024 coding lunatics. All rights reserved.
       </div>
    
     </div>
