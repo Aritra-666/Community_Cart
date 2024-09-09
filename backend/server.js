@@ -400,12 +400,12 @@ console.log("done")
 
 app.post("/ProductsImage", async (req, res) => {
 
-  console.log(req.body)
+  
 
   let Image = await image.findOne({ID : req.body.ID})
 
   if(Image !== null){
-    console.log("res send..")
+    
     res.json({url :Image.base64url})
   }
 
