@@ -33,7 +33,6 @@ export default function Product(props) {
   
       let res = await req.json();
 
-      console.log(res)
   
       document.querySelector(`#${props.ID}`).src=res.url
 

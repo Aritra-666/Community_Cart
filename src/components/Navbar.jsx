@@ -1,10 +1,46 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import NavbarStyle from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { Context } from "../context/context";
 
 export default function Navbar() {
   const [Account, setAccount] = useState(false);
+
+  const context = useContext(Context)
+
+   const getSearchResult = async (content) =>{
+
+    console.log("getting...")
+    context.setProducts(0);
+
+    let req =  await fetch("http://localhost:3000/getSearchResult", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({content:content}),
+    });
+
+    if(req.ok){
+      console.log("ok")
+      let res = await req.json();
+
+      if (res !== null) {
+        console.log(res)
+        context.setProducts(res); 
+      }
+
+    } else {
+        console.error(`ERROR:${req.status},${req.statusText}`);
+        alert(`ERROR:${req.status},${req.statusText}`);
+      }
+
+
+
+   }
+
+
 
   const checkSession = async (cookieID) => {
     if (cookieID !== null) {
@@ -63,10 +99,20 @@ export default function Navbar() {
       <div className={NavbarStyle.searchbox}>
         <input
           className={NavbarStyle.search}
-          type=""
+          type="text"
+          id="search"
           placeholder="Seach for fruits,vegetables and more"
         />
-        <button className={NavbarStyle.searchbtn}>Search</button>
+        <button onClick={()=>
+        {
+          
+          if(document.getElementById("search").value !== ''){
+            getSearchResult(document.getElementById("search").value)
+          }
+        
+        }
+          
+          } className={NavbarStyle.searchbtn}>Search</button>
       </div>
       <div className={NavbarStyle.attachright}>
         <div className={NavbarStyle.cart}>

@@ -411,3 +411,15 @@ app.post("/ProductsImage", async (req, res) => {
 
 
 })
+
+
+
+app.post("/getSearchResult", async (req, res) => {
+
+
+   let Result = await product.find({name : req.body.content})
+   
+
+   res.send(Result)
+
+})

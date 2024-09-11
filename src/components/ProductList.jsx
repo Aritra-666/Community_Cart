@@ -1,12 +1,13 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
 import Product from "./Product";
 import ProductListStyle from "./ProductList.module.css";
+import { Context } from "../context/context";
 
 
 export default function ProductList() {
-  const [Products, setProducts] = useState(null);
-
+  
+  const context = useContext(Context)
 
 
   const getProduct = async () => {
@@ -21,7 +22,7 @@ export default function ProductList() {
 
       if (res !== null) {
   
-        setProducts(res);
+        context.setProducts(res);
       }
     } else {
       console.error(`ERROR:${req.status},${req.statusText}`);
@@ -35,8 +36,8 @@ export default function ProductList() {
     <div className={ProductListStyle.productList}>
       <div  className={ProductListStyle.productcontainer}>
       
-        {Products ? 
-        Products.map((product,index) => {
+        {context.Products ? 
+        context.Products.map((product,index) => {
           return (
             <Product key={index} ID={product.ProductID} Name={product.name} Price={product.price} unit={product.unit}/>
           );
