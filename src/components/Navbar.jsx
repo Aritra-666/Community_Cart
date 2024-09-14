@@ -116,11 +116,13 @@ export default function Navbar() {
       </div>
       <div className={NavbarStyle.attachright}>
         <div className={NavbarStyle.cart}>
+        <Link to="/Cart">
           <img
             className={NavbarStyle.carticon}
             src="cart-removebg-preview.png"
             alt=""
           />
+          </Link>
         </div>
         <div className={NavbarStyle.accountbox}>
           {Account ? (

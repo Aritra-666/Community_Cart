@@ -12,6 +12,7 @@ import { session } from "./models/session.js";
 import { product } from "./models/products.js";
 import { seller } from "./models/seller.js";
 import { image } from "./models/image.js";
+import { cartElement } from "./models/cartElement.js";
 
 const app = express();
 const port = 3000;
@@ -407,6 +408,7 @@ app.post("/ProductsImage", async (req, res) => {
   if(Image !== null){
     
     res.json({url :Image.base64url})
+    
   }
 
 
@@ -421,5 +423,50 @@ app.post("/getSearchResult", async (req, res) => {
    
 
    res.send(Result)
+
+})
+
+app.post("/AddToCart", async (req, res) => {
+
+  console.log(req.body)
+
+ try{
+
+  let CartElement= new cartElement(
+    {
+      SessionID: req.body.SessionID,
+      ProductID: req.body.ProductID
+    }
+  )
+  CartElement.save();
+
+  res.send(true)
+
+}catch(error){
+
+  res.send(false)
+
+}
+
+})
+
+
+app.post("/getCartProducts", async (req, res) => {
+  
+  
+  let products =  await cartElement.find({ SessionID: req.body.cookieID })
+ 
+  res.send(products)
+
+})
+
+
+app.post("/getcartProductData", async (req, res) => {
+
+  let productdata = await product.findOne(req.body)
+
+  console.log(productdata)
+
+  res.send(productdata)
 
 })
