@@ -8,6 +8,7 @@ export default function CartProducts(props) {
     const[name,setname]= useState(null)
     const[Price,setPrice]= useState(null)
     const[unit,setunit]= useState(null)
+    const [quantity,setquantity]=useState(props.Quantity)
     const[url,seturl]= useState("default.png")
 
     const loadimg = async (ProductID) => {
@@ -25,7 +26,7 @@ export default function CartProducts(props) {
           if(req.ok){
   
             let res = await req.json();
-            console.log(res)
+           
             seturl(res.url)
             //  document.getElementById(ProductID).src=res.url
 
@@ -39,6 +40,37 @@ export default function CartProducts(props) {
 
 
     }
+
+
+    const operation = async (type, ProductID) => {
+    
+
+      let req =  await fetch("http://localhost:3000/cartOperations", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({type: type , ProductID:ProductID , CookieID : getCookie("cookieID")}),
+      });
+
+      if(req.ok){
+  
+        let res = await req.json();
+      
+        setquantity(res.update)
+
+
+
+       } else {
+           
+          console.error(`ERROR:${req.status},${req.statusText}`);
+          alert(`ERROR:${req.status},${req.statusText}`);
+      
+       }
+
+
+    }
+    
     
 
 
@@ -57,7 +89,7 @@ export default function CartProducts(props) {
           if(req.ok){
   
             let res = await req.json();
-            console.log(res)
+           
             setname(res.name)
             setPrice(res.price)
             setunit(res.unit)
@@ -75,6 +107,23 @@ export default function CartProducts(props) {
 
     }
     
+
+    
+
+  function getCookie(name) {
+    const cookieName = `${name}=`;
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookiesArray = decodedCookie.split(";");
+    for (let cookie of cookiesArray) {
+      cookie = cookie.trim();
+
+      if (cookie.indexOf(cookieName) === 0) {
+        return cookie.substring(cookieName.length, cookie.length);
+      }
+    }
+
+    return null;
+  }
 
 
 
@@ -98,9 +147,9 @@ export default function CartProducts(props) {
 
       <div className={CartProductsStyle.operations}>
 
-        <div id="decrement" className={CartProductsStyle.decrement}>-</div>
-        <div id="numbers" className={CartProductsStyle.numbers}>0</div>
-        <div id="increment" className={CartProductsStyle.increment}>+</div>
+        <div id="decrement" onClick={() => {operation('-', props.ID)}} className={CartProductsStyle.decrement}>-</div>
+        <div id="numbers" className={CartProductsStyle.numbers}>{quantity}</div>
+        <div id="increment" onClick={() => {operation('+', props.ID)}}  className={CartProductsStyle.increment}>+</div>
 
       </div>
     </div>

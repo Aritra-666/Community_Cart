@@ -22,7 +22,8 @@ export default function Cart() {
 
       if (res !== null) {
        
-        console.log(res)
+        
+      
         setCartProduct(res);
       }
     } else {
@@ -59,7 +60,7 @@ export default function Cart() {
       {CartProduct ? 
       CartProduct.map((product,index) => {
         return (
-          <CartProducts key={index} ID={product.ProductID}/>
+          <CartProducts key={index} ID={product.ProductID} Quantity={product.Quantity}/>
         );
       }
       ) 

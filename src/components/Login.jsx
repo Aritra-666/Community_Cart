@@ -11,7 +11,7 @@ export default function Login() {
 
   const LoginSubmit = async (object) => {
 
-    console.log(object.Seller)
+    
     
     document.querySelectorAll(`.${LoginStyle.input}`).forEach((element) => {
       element.disabled = true;

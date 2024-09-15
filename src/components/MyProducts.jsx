@@ -35,7 +35,7 @@ export default function MyProducts() {
       if(req.ok){
         settoggle(false)
       }else{
-        console.log(req)
+        
       }
    }
    

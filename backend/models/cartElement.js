@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 const CartElement = new mongoose.Schema({
     
       SessionID: String,
-      ProductID:String
+      ProductID:String,
+      Quantity:Number
 
 });
 

@@ -9,7 +9,7 @@ export default function Catagoryicon(props) {
 
   const getSearchResult = async (content) =>{
 
-   console.log("getting...")
+  
    context.setProducts(0);
 
    let req =  await fetch("http://localhost:3000/getSearchResult", {
@@ -25,7 +25,7 @@ export default function Catagoryicon(props) {
      let res = await req.json();
 
      if (res !== null) {
-       console.log(res)
+     
        context.setProducts(res); 
      }
 

@@ -227,7 +227,7 @@ app.post("/getProducts", async (req, res) => {
 
 app.post("/verifySellerEmail", (req, res) => {
 
-  console.log(req.body)
+
 
   const email = req.body.email;
 
@@ -278,7 +278,7 @@ app.post("/verifySellerEmail", (req, res) => {
             status: false,
           });
           TOKEN.save();
-          console.log(TOKEN)
+         
           res.json({ ClientID: clientID });
         }
       });
@@ -291,7 +291,7 @@ app.post("/verifySellerEmail", (req, res) => {
 
 app.post("/sellertokenUpdates", (req, res) => {
 
-  console.log(req.body)
+
   
   token.findOne({ clientID: req.body.ClientID }).then((data) => {
    
@@ -365,7 +365,7 @@ app.post("/getownproducts", async (req, res) => {
 
 app.post("/AddProducts", async (req, res) => {
 
-// console.log(req.body)
+
 
   
 let cookieStatus= await session.findOne({ID:req.body.cookieID})
@@ -392,7 +392,6 @@ IMAGE.save()
 
 }
 
-console.log("done")
 })
 
 
@@ -428,19 +427,45 @@ app.post("/getSearchResult", async (req, res) => {
 
 app.post("/AddToCart", async (req, res) => {
 
-  console.log(req.body)
+  var Quantity = 1
 
  try{
 
-  let CartElement= new cartElement(
+  let previousElement = await cartElement.findOne(
     {
-      SessionID: req.body.SessionID,
-      ProductID: req.body.ProductID
-    }
+    SessionID: req.body.SessionID,
+    ProductID: req.body.ProductID
+   }
   )
-  CartElement.save();
 
-  res.send(true)
+  if(previousElement !== null){
+    
+  let UpdateCartElement = await cartElement.updateOne(
+   previousElement , {$set : {Quantity : previousElement.Quantity+1}}
+  )
+  if(UpdateCartElement.modifiedCount > 0){
+
+    res.send(true)
+  }else{
+    res.send(false)
+  }
+
+
+  }else{
+   
+    let CartElement= new cartElement(
+      {
+        SessionID: req.body.SessionID,
+        ProductID: req.body.ProductID,
+        Quantity : Quantity
+      }
+    )
+    CartElement.save();
+  
+    res.send(true)
+  }
+
+
 
 }catch(error){
 
@@ -465,8 +490,42 @@ app.post("/getcartProductData", async (req, res) => {
 
   let productdata = await product.findOne(req.body)
 
-  console.log(productdata)
+
 
   res.send(productdata)
+
+})
+
+
+app.post("/cartOperations", async (req, res) => {
+
+
+  let previousElement = await cartElement.findOne({
+    SessionID: req.body.CookieID,
+    ProductID: req.body.ProductID
+  })
+
+  if(req.body.type == '+'){
+
+    await cartElement.updateOne(
+      previousElement , {$set : {Quantity : previousElement.Quantity+1}}
+     )
+
+
+  }else if(req.body.type == '-'){
+
+    await cartElement.updateOne(
+      previousElement , {$set : {Quantity : previousElement.Quantity-1}}
+     )
+ }
+
+ let updatedElement = await cartElement.findOne({
+  SessionID: req.body.CookieID,
+  ProductID: req.body.ProductID
+})
+
+res.json({update:updatedElement.Quantity})
+
+
 
 })

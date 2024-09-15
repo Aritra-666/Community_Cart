@@ -43,7 +43,7 @@ export default function SellerSignin() {
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log(data)
+             
                 if(data !== null){
                   if (data) {
                     clearInterval(polling);

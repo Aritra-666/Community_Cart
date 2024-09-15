@@ -95,11 +95,13 @@
     align-items: center;
     height: 100%;
     width: 33.33%;
+    transition: 0.5s;
     
  }
  
- .operations:hover{
-    letter-spacing: 1px;
+ .operations > div:hover{
+   background-color: #4b22ff;
+   border-color: #4b22ff;
  }
  
  
